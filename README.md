@@ -16,6 +16,9 @@
 
 >RESTFUL API
 
+## Figma design
+    [Awards site](https://www.figma.com/file/ESMKHngxfxjSWXFaU2CpeF/Untitled?node-id=0%3A1)
+
 ## Installation and setup locally
 ## Pre-requisites
 - Python3
