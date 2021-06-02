@@ -26,6 +26,6 @@
 ## Cloning and opening on compiler
 #### On your terminal run
 
-    $ git clone https://github.com/Elrophi/django-gallery.git
+    $ git clone https://github.com/Elrophi/Awards.git
     $ cd gallery
     $ code .
