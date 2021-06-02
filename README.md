@@ -43,4 +43,4 @@
 ---
 
 ## Copyright and License
-[MIT License](https://github.com/Elrophi/django-gallery/blob/master/LICENSE)  
+[MIT License](https://github.com/Elrophi/Awards/blob/master/LICENSE)  
