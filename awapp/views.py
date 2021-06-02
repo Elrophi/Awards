@@ -94,6 +94,21 @@ def edit_profile(request, username):
     }
     return render(request, 'edit.html', params)
 
+@login_required(login_url='login')
+def new_project(request):
+    # user = User.objects.get()
+    if request.method == 'POST':
+        proj_form = PostForm(request.POST)
+        if proj_form.is_valid():
+            proj_form.save()
+            return redirect('index')
+    else:
+        proj_form = PostForm()
+    params = {
+        'proj_form': proj_form,
+    }
+    return render(request, 'index.html', params)
+
 
 @login_required(login_url='login')
 def project(request, post):

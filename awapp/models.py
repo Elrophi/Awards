@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False)
     page= models.URLField(max_length=255)
     description = models.TextField(max_length=255)
-    photo = CloudinaryField('image', null=True)
+    photo = CloudinaryField('image')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
     date = models.DateTimeField(auto_now_add=True, blank=True)
 

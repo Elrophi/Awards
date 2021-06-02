@@ -1,30 +1,21 @@
 {% load crispy_forms_tags %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="nbar">
+{% load static %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow scrolling-navbar" id="nbar">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
+        <img src="{% static '/photo/logo.png'%}" alt="logo" width="50px" height="50px">
+        <a class="navbar-brand text-white" href="{% url 'index' %}"> <strong class="mr-4 brand"> DJANGO-RATER</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <form class="form-inline" method="get" action="{% url 'search' %}">
-                        {% csrf_token %}
-                        <div class="md-form my-0">
-                            <input class="form-control mr-sm-2 " type="text" placeholder="Search" name="title" aria-label="Search">
-                        </div>
-                    </form>
-                </li>
-            </ul>
-
             <ul class="navbar-nav navbar-right">
                 {% if user.is_authenticated%}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true"
                        aria-expanded="false">{{ user.username|title }} <img class="rounded-circle nav-img"
-                                                                            src="{{ user.profile.profile_picture.url }}"
+                                                                            src="{{ user.profile.user_image.url }}"
                                                                             alt="">
                     </a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -38,11 +29,22 @@
                     </div>
                 </li>
                 {% else %}
-                <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
+                <a href="{% url 'login' %}" class="login btn btn-sm btn-success"> REGISTER/LOGIN </a>
                 {% endif %}
-                <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
+                <button class="btn btn-success btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
                     Submit your site
                 </button>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <form class="form-inline" method="get" action="{% url 'search' %}">
+                        {% csrf_token %}
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2 " type="text" placeholder="Search" name="title" aria-label="Search">
+                        </div>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
