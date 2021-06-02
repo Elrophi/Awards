@@ -19,6 +19,9 @@
 ## Figma design
 [Awards site](https://www.figma.com/file/ESMKHngxfxjSWXFaU2CpeF/Untitled?node-id=0%3A1)
 
+## ER diagram
+[ER Diagram](https://embed.creately.com/pRaZrCrlXKt?token=UvZjffcASd3zjwVP&type=svg)
+
 ## Installation and setup locally
 ## Pre-requisites
 - Python3
