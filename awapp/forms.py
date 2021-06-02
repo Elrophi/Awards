@@ -1,7 +1,11 @@
+from cloudinary.models import CloudinaryField
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.db.models.fields.files import ImageField
 from .models import Post, Profile, Rating
+from cloudinary.models import CloudinaryField
+
 
 
 class SignupForm(UserCreationForm):
@@ -13,7 +17,7 @@ class SignupForm(UserCreationForm):
 
 
 class PostForm(forms.ModelForm):
-    # photo = ImageField(label='')
+    photo = CloudinaryField()
 
     class Meta:
         model = Post

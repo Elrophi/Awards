@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 import datetime as dt
+from cloudinary.models import CloudinaryField
 
 
 
@@ -12,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100, null=False, blank=False)
     page= models.URLField(max_length=255)
     description = models.TextField(max_length=255)
-    photo = models.ImageField(upload_to='images/')
+    photo = CloudinaryField('image', null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='projects')
     date = models.DateTimeField(auto_now_add=True, blank=True)
 
@@ -34,7 +35,7 @@ class Post(models.Model):
         self.save()
 
 class Profile(models.Model):
-    user_image = models.ImageField(upload_to='images/')
+    user_image = CloudinaryField('image', default='default.jpg')
     name = models.CharField(blank=True, max_length=100)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     myproject = models.TextField(max_length=300, default="BIO", blank=True)
